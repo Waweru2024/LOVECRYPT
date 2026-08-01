@@ -1,1 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LOVECRYPT</title>
 
+<style>
+body{
+    margin:0;
+    background:#000;
+    color:#00ff66;
+    font-family:Consolas, monospace;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.terminal{
+    width:90%;
+    max-width:700px;
+    border:2px solid #00ff66;
+    padding:25px;
+    box-shadow:0 0 20px #00ff66;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    margin-top:15px;
+    background:#000;
+    color:#00ff66;
+    border:1px solid #00ff66;
+}
+
+button{
+    margin-top:15px;
+    padding:12px;
+    width:100%;
+    background:#00ff66;
+    color:#000;
+    border:none;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+#message{
+    display:none;
+    margin-top:20px;
+    white-space:pre-line;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="terminal">
+
+<h2>LOVECRYPT SECURE TERMINAL</h2>
+
+<p>> Secure encrypted message detected.</p>
+<p>> Authorization required.</p>
+
+<input id="key" type="password" placeholder="Enter Decryption Key">
+
+<button onclick="unlock()">Decrypt</button>
+
+<div id="status"></div>
+
+<div id="message">
+❤️ ACCESS GRANTED ❤️
+
+Happy Girlfriend's Day, My Love.
+
+You are the only person
+who has permission to unlock
+my heart.
+
+Thank you for making my life
+more beautiful every day.
+
+Connection Status:
+FOREVER ❤️
+
+— Your Favorite Hacker
+</div>
+
+</div>
+
+<script>
+
+function unlock(){
+
+const key=document.getElementById("key").value;
+
+if(key==="ILOVEYOU"){
+
+document.getElementById("status").innerHTML="Decrypting... ██████████ 100%";
+
+setTimeout(function(){
+
+document.getElementById("message").style.display="block";
+
+},1500);
+
+}else{
+
+document.getElementById("status").innerHTML="<span style='color:red'>ACCESS DENIED</span>";
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
