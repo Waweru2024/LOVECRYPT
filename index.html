@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>LOVECRYPT</title>
 
 <style>
+
 body{
     margin:0;
     background:#000;
@@ -15,26 +18,35 @@ body{
     justify-content:center;
     align-items:center;
     height:100vh;
+    overflow:hidden;
 }
 
 .terminal{
+
     width:90%;
     max-width:700px;
     border:2px solid #00ff66;
     padding:25px;
     box-shadow:0 0 20px #00ff66;
+    background:#000;
+    position:relative;
+    z-index:2;
+
 }
 
 input{
+
     width:100%;
     padding:12px;
     margin-top:15px;
     background:#000;
     color:#00ff66;
     border:1px solid #00ff66;
+
 }
 
 button{
+
     margin-top:15px;
     padding:12px;
     width:100%;
@@ -43,51 +55,111 @@ button{
     border:none;
     font-weight:bold;
     cursor:pointer;
+
 }
 
+button:hover{
+
+    box-shadow:0 0 15px #00ff66;
+
+}
+
+
 #message{
+
     display:none;
     margin-top:20px;
     white-space:pre-line;
+    line-height:1.6;
+
 }
+
+
+.heart{
+
+    position:fixed;
+    bottom:-20px;
+    animation:float 5s linear;
+    z-index:1;
+
+}
+
+
+@keyframes float{
+
+    from{
+
+        transform:translateY(0);
+        opacity:1;
+
+    }
+
+    to{
+
+        transform:translateY(-100vh);
+        opacity:0;
+
+    }
+
+}
+
 </style>
 
 </head>
 
+
 <body>
+
 
 <div class="terminal">
 
 <h2>LOVECRYPT SECURE TERMINAL</h2>
 
+
 <p>> Secure encrypted message detected.</p>
+
 <p>> Authorization required.</p>
+
 
 <input id="key" type="password" placeholder="Enter Decryption Key">
 
+
 <button onclick="unlock()">Decrypt</button>
+
 
 <div id="status"></div>
 
+
 <div id="message">
+
 ❤️ ACCESS GRANTED ❤️
 
+
 Happy Girlfriend's Day, My Love.
+
 
 You are the only person
 who has permission to unlock
 my heart.
 
+
 Thank you for making my life
 more beautiful every day.
 
+
 Connection Status:
+
 FOREVER ❤️
 
+
 — Your Favorite Hacker
-</div>
 
 </div>
+
+
+</div>
+
+
 
 <script>
 
@@ -95,25 +167,75 @@ function unlock(){
 
 const key=document.getElementById("key").value;
 
+
 if(key==="ILOVEYOU"){
 
-document.getElementById("status").innerHTML="Decrypting... ██████████ 100%";
+
+document.getElementById("status").innerHTML =
+"Decrypting... ██████████ 100%";
+
 
 setTimeout(function(){
 
+
 document.getElementById("message").style.display="block";
+
 
 },1500);
 
-}else{
 
-document.getElementById("status").innerHTML="<span style='color:red'>ACCESS DENIED</span>";
+}
+
+else{
+
+
+document.getElementById("status").innerHTML =
+"<span style='color:red'>ACCESS DENIED</span>";
+
 
 }
 
 }
+
+
+
+// Floating hearts ❤️
+
+setInterval(function(){
+
+
+let heart=document.createElement("div");
+
+
+heart.className="heart";
+
+heart.innerHTML="❤️";
+
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.fontSize=(Math.random()*20+20)+"px";
+
+
+document.body.appendChild(heart);
+
+
+
+setTimeout(function(){
+
+heart.remove();
+
+},5000);
+
+
+
+},500);
+
+
 
 </script>
-<script src="script.js"></script>
+
+
 </body>
+
 </html>
